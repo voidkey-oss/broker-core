@@ -1,0 +1,58 @@
+{
+  "name": "@voidkey/broker-core",
+  "version": "0.8.0",
+  "description": "Core credential minting logic for the voidkey zero-trust credential broker",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": [
+    "credentials",
+    "oidc",
+    "zero-trust",
+    "security",
+    "aws",
+    "cloud"
+  ],
+  "author": "Voidkey Security Team",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/voidkey-oss/broker-core.git",
+    "directory": "broker-core"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "jose": "^6.0.12",
+    "js-yaml": "^4.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "node-fetch": "^2.7.0",
+    "@types/node": "^24.1.0",
+    "@types/js-yaml": "^4.0.9",
+    "@types/jsonwebtoken": "^9.0.0",
+    "@types/node-fetch": "^2.6.11"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.0.5",
+    "ts-jest": "^29.4.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
