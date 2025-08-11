@@ -1,6 +1,6 @@
 {
   "name": "@voidkey/broker-core",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Core credential minting logic for the voidkey zero-trust credential broker",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
