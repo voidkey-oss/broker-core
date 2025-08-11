@@ -12,35 +12,35 @@ The broker-core participates in the zero-trust credential broker workflow:
 
 ```
 ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐
-│   Client    │───▶│  Client IdP │    │   Voidkey   │───▶│  Broker IdP │───▶│   Access    │
+│   Client    │──▶│  Client IdP │    │   Voidkey   │──▶│  Broker IdP │──▶│   Access    │
 │     CLI     │    │  (Auth0,    │    │   Broker    │    │ (Keycloak,  │    │  Provider   │
 │             │    │ GitHub, etc)│    │             │    │  Okta, etc) │    │    (STS)    │
 └─────────────┘    └─────────────┘    └─────────────┘    └─────────────┘    └─────────────┘
        │                   │                   │                   │                   │
        │ 1. Get client     │                   │                   │                   │
        │    OIDC token     │                   │                   │                   │
-       │◀──────────────────│                   │                   │                   │
+       │◀─────────────────│                   │                   │                   │
        │                                       │                   │                   │
        │ 2. Request credentials with token     │                   │                   │
-       │──────────────────────────────────────▶│                   │                   │
+       │─────────────────────────────────────▶│                   │                   │
        │                                       │                   │                   │
-       │                             3. Validate client token     │                   │
+       │                             3. Validate client token      │                   │
        │                                       │                   │                   │
        │                                       │ 4. Get broker     │                   │
        │                                       │    OIDC token     │                   │
-       │                                       │◀──────────────────│                   │
+       │                                       │◀─────────────────│                   │
        │                                       │                                       │
        │                                       │ 5. Mint credentials with broker token │
-       │                                       │──────────────────────────────────────▶│
+       │                                       │─────────────────────────────────────▶│
        │                                       │                                       │
        │                                       │ 6. Return temp credentials            │
-       │                                       │◀──────────────────────────────────────│
+       │                                       │◀─────────────────────────────────────│
        │                                       │                                       │
        │ 7. Return temp credentials to client  │                                       │
-       │◀──────────────────────────────────────│                                       │
+       │◀─────────────────────────────────────│                                       │
        │                                                                               │
        │ 8. Use credentials for operations                                             │
-       │──────────────────────────────────────────────────────────────────────────────▶│
+       │─────────────────────────────────────────────────────────────────────────────▶│
 ```
 
 ## Key Components
